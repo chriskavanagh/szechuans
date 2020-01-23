@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { addQuantity, removeItem } from "./../actions/itemAction";
+import {
+  addQuantity,
+  removeQuantity,
+  removeItem
+} from "./../actions/itemAction";
 import { useSelector, useDispatch } from "react-redux";
 
 const H1 = styled.h1`
@@ -22,11 +26,13 @@ const AddBtn = styled.button`
   margin-left: 0px;
   border-radius: 7px;
   color: green;
+  font-weight: bolder;
+  font-size: 17px;
 `;
 
 const Ul = styled.ul`
   display: grid;
-  grid-template-columns: 230px 50px 50px 115px;
+  grid-template-columns: 230px 50px 50px 50px 115px;
   align-items: center;
   justify-content: center;
 
@@ -86,7 +92,12 @@ export default function Cart() {
               </div>
               <div>
                 <AddBtn onClick={() => dispatch(addQuantity(item.id))}>
-                  Add
+                  +
+                </AddBtn>
+              </div>
+              <div>
+                <AddBtn onClick={() => dispatch(removeQuantity(item.id))}>
+                  -
                 </AddBtn>
               </div>
               <div>

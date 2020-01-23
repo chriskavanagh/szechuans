@@ -50,6 +50,20 @@ export default (state = initialState, action) => {
         )
       };
 
+    case "REMOVE_QUANTITY":
+      return {
+        ...state,
+        addedItems: state.addedItems.map(item =>
+          item.id === action.payload
+            ? {
+                ...item,
+                quantity:
+                  item.quantity < 1 ? item.quantity - 0 : item.quantity - 1
+              }
+            : item
+        )
+      };
+
     default:
       return state;
   }

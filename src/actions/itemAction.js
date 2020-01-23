@@ -18,3 +18,10 @@ export const addQuantity = id => dispatch => {
     payload: id
   });
 };
+
+export const removeQuantity = id => dispatch => {
+  dispatch({
+    type: "REMOVE_QUANTITY",
+    payload: id
+  });
+};
