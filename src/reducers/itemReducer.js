@@ -51,6 +51,7 @@ export default (state = initialState, action) => {
       };
 
     case "REMOVE_QUANTITY":
+      let raddedItem = state.items.find(item => item.id === action.payload);
       return {
         ...state,
         addedItems: state.addedItems.map(item =>
@@ -58,10 +59,11 @@ export default (state = initialState, action) => {
             ? {
                 ...item,
                 quantity:
-                  item.quantity < 1 ? item.quantity - 0 : item.quantity - 1
+                  item.quantity <= 1 ? item.quantity - 0 : item.quantity - 1
               }
             : item
-        )
+        ),
+        total: state.total - raddedItem.price
       };
 
     default:
