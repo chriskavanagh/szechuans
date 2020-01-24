@@ -96,7 +96,10 @@ export default function Cart() {
                 </AddBtn>
               </div>
               <div>
-                <AddBtn onClick={() => dispatch(removeQuantity(item.id))}>
+                <AddBtn
+                  disabled={item.quantity === 1}
+                  onClick={() => dispatch(removeQuantity(item.id))}
+                >
                   -
                 </AddBtn>
               </div>

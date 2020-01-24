@@ -41,17 +41,23 @@ export default (state = initialState, action) => {
       };
 
     case "ADD_QUANTITY":
+      let add_cart_item = state.addedItems.find(
+        item => action.payload === item.id
+      );
       return {
         ...state,
         addedItems: state.addedItems.map(item =>
           item.id === action.payload
             ? { ...item, quantity: item.quantity + 1 }
             : item
-        )
+        ),
+        total: state.total + add_cart_item.price
       };
 
     case "REMOVE_QUANTITY":
-      let raddedItem = state.items.find(item => item.id === action.payload);
+      let sub_cart_item = state.addedItems.find(
+        item => action.payload === item.id
+      );
       return {
         ...state,
         addedItems: state.addedItems.map(item =>
@@ -63,7 +69,7 @@ export default (state = initialState, action) => {
               }
             : item
         ),
-        total: state.total - raddedItem.price
+        total: state.total - sub_cart_item.price
       };
 
     default:
