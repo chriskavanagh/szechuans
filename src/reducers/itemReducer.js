@@ -6,7 +6,7 @@ const initialState = {
     { id: 4, dish: "Szechuan Chicken", price: 9.5, quantity: 0 }
   ],
   addedItems: [],
-  total: 0
+  total: +(0).toFixed(2)
 };
 
 export default (state = initialState, action) => {

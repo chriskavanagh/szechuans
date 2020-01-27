@@ -1,4 +1,5 @@
 import React from "react";
+import Total from "./Total";
 import styled from "styled-components";
 import {
   addQuantity,
@@ -55,26 +56,31 @@ const Li = styled.li`
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: auto;
+  grid-auto-rows: auto;
   grid-template-areas:
     ". . . header . . ."
-    ". . . cart . . .";
+    ". . . cart total . .";
   .header {
     grid-area: header;
     place-self: center;
+  }
+  .total {
+    grid-area: total;
+    margin-left: 50px;
+    margin-top: 47px;
   }
 `;
 const Div = styled.div`
   grid-area: cart;
   background: #f2f2f2;
-  border: 1px solid lightgrey;
+  border: 1px solid skyblue;
   border-radius: 3px;
   margin-top: 3rem;
 `;
 
 export default function Cart() {
   const cart = useSelector(state => state.itemReducer.addedItems);
-  //const quantity = useSelector(state => state.itemReducer.quantity);
+  const sub = useSelector(state => state.itemReducer.total);
   const dispatch = useDispatch();
 
   return (
@@ -113,6 +119,7 @@ export default function Cart() {
           ))}
         </Ul>
       </Div>
+      <Total subtotal={sub} />
     </Wrapper>
   );
 }

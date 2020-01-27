@@ -1,8 +1,16 @@
-export const addItem = id => dispatch => {
+/* export const addItem = id => dispatch => {
   dispatch({
     type: "ADD_ITEM",
     payload: id
   });
+}; */
+
+// basic way
+export const addItem = id => {
+  return {
+    type: "ADD_ITEM",
+    payload: id
+  };
 };
 
 export const removeItem = id => dispatch => {
