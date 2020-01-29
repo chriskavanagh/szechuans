@@ -13,6 +13,7 @@ const H1 = styled.h1`
   color: skyblue;
   margin-top: 3rem;
   text-align: center;
+  font-family: "Work Sans", sans-serif;
 `;
 
 const Button = styled.button`
@@ -55,11 +56,14 @@ const Li = styled.li`
 
 const Wrapper = styled.div`
   display: grid;
+  justify-items: center;
+  margin: 0 auto;
   grid-template-columns: repeat(7, 1fr);
   grid-auto-rows: auto;
   grid-template-areas:
     ". . . header . . ."
-    ". . . cart total . .";
+    ". . . cart . . ."
+    ". . . total . . .";
   .header {
     grid-area: header;
     place-self: center;
@@ -67,7 +71,7 @@ const Wrapper = styled.div`
   .total {
     grid-area: total;
     margin-left: 50px;
-    margin-top: 47px;
+    margin-top: 17px;
   }
 `;
 const Div = styled.div`
@@ -78,11 +82,33 @@ const Div = styled.div`
   margin-top: 3rem;
 `;
 
+const EmptyDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 3rem;
+  text-align: center;
+
+  h3 {
+    border: 2px solid skyblue;
+    border-radius: 5px;
+    max-width: 200px;
+    padding: 5px 10px;
+  }
+`;
+
 export default function Cart() {
   const cart = useSelector(state => state.itemReducer.addedItems);
   const sub = useSelector(state => state.itemReducer.total);
   const dispatch = useDispatch();
 
+  if (cart.length === 0) {
+    return (
+      <EmptyDiv>
+        <h3>Your Cart Is Empty</h3>
+      </EmptyDiv>
+    );
+  }
   return (
     <Wrapper>
       <H1 className="header">My Cart</H1>

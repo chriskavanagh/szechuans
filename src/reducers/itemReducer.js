@@ -34,10 +34,12 @@ export default (state = initialState, action) => {
       }
 
     case "REMOVE_ITEM":
+      let inCart = state.addedItems.find(item => action.payload === item.id);
+      let itemTotal = inCart.quantity * inCart.price.toFixed(2);
       return {
         ...state,
         addedItems: state.addedItems.filter(item => item.id !== action.payload),
-        total: state.total - 1
+        total: state.total - itemTotal
       };
 
     case "ADD_QUANTITY":
