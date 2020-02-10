@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Div = styled.div`
-  max-height: 160px;
+  max-height: 180px;
   background: #f2f2f2;
   border: 1px solid skyblue;
   border-radius: 5px;

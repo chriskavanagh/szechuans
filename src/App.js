@@ -3,8 +3,8 @@ import "./styles.css";
 import "@babel/polyfill";
 import Food from "./components/Food";
 import Cart from "./components/Cart";
-import styled from "styled-components";
 import Navbar from "./components/NavBar";
+import Menu from "./components/Menu";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const App = () => {

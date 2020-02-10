@@ -8,6 +8,7 @@ import {
 } from "./../actions/itemAction";
 import { useSelector, useDispatch } from "react-redux";
 import { FaTrashAlt } from "react-icons/fa";
+import { Badge } from "reactstrap";
 
 const H1 = styled.h1`
   font-size: 30px;
@@ -41,12 +42,10 @@ const Ul = styled.ul`
   justify-content: center;
 
   .quantity {
-    background: #a59ce1;
-    border-radius: 45%;
-    padding: 5px 8px;
     color: whitesmoke;
     font-weight: bolder;
     margin-left: 7px;
+    font-size: 20px;
   }
 `;
 
@@ -129,7 +128,9 @@ export default function Cart() {
                 </AddBtn>
               </div>
               <div>
-                <span className="quantity">{item.quantity}</span>
+                <Badge className="quantity" color="primary">
+                  {item.quantity}
+                </Badge>
               </div>
               <div>
                 <AddBtn

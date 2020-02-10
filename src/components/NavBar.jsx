@@ -32,7 +32,7 @@ const Navbar = props => {
     <Nav className="nav-wrapper">
       <div className="container">
         <Link className="brand-logo" to="/">
-          Szechuan's
+          Szechuan's Restaurant
         </Link>
         <ul className="right">
           <li>
