@@ -7,6 +7,7 @@ import {
   removeItem
 } from "./../actions/itemAction";
 import { useSelector, useDispatch } from "react-redux";
+import { FaTrashAlt } from "react-icons/fa";
 
 const H1 = styled.h1`
   font-size: 30px;
@@ -21,6 +22,7 @@ const Button = styled.button`
   margin-left: 7px;
   border-radius: 7px;
   color: red;
+  font-size: 16px;
 `;
 
 const AddBtn = styled.button`
@@ -44,6 +46,7 @@ const Ul = styled.ul`
     padding: 5px 8px;
     color: whitesmoke;
     font-weight: bolder;
+    margin-left: 7px;
   }
 `;
 
@@ -62,8 +65,8 @@ const Wrapper = styled.div`
   grid-auto-rows: auto;
   grid-template-areas:
     ". . . header . . ."
-    ". . . cart . . ."
-    ". . . total . . .";
+    ". . . cart total . ."
+    ". . . . . . .";
   .header {
     grid-area: header;
     place-self: center;
@@ -71,7 +74,7 @@ const Wrapper = styled.div`
   .total {
     grid-area: total;
     margin-left: 50px;
-    margin-top: 17px;
+    margin-top: 3rem;
   }
 `;
 const Div = styled.div`
@@ -119,13 +122,14 @@ export default function Cart() {
               <div>
                 <Li key={item.id}>{item.dish}</Li>
               </div>
-              <div>
-                <span className="quantity">{item.quantity}</span>
-              </div>
+
               <div>
                 <AddBtn onClick={() => dispatch(addQuantity(item.id))}>
                   +
                 </AddBtn>
+              </div>
+              <div>
+                <span className="quantity">{item.quantity}</span>
               </div>
               <div>
                 <AddBtn
@@ -138,7 +142,7 @@ export default function Cart() {
               <div>
                 {" "}
                 <Button onClick={() => dispatch(removeItem(item.id))}>
-                  Delete
+                  <FaTrashAlt />
                 </Button>
               </div>
             </>
