@@ -18,13 +18,16 @@ const Li = styled.li`
   list-style: none;
   margin: 10px auto;
   font-size: 1.5rem;
+  display: grid;
+  grid-template-columns: 300px 200px;
+  justify-content: center;
 `;
 
 const Button = styled.button`
-  padding: 5px 10px;
   margin-left: 7px;
   border-radius: 5px;
-  color: green;
+  color: blue;
+  font-size: 17px;
 `;
 
 export default function Food() {
@@ -43,11 +46,10 @@ export default function Food() {
         {menu.map(f => (
           <Li key={f.id}>
             {f.dish}
-            <Button onClick={() => dispatch(addItem(f.id))}>Add</Button>
+            <Button onClick={() => dispatch(addItem(f.id))}>Add To Cart</Button>
           </Li>
         ))}
       </ul>
-      <Cart />
     </Div>
   );
 }

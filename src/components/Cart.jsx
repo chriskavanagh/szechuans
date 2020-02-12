@@ -8,7 +8,7 @@ import {
 } from "./../actions/itemAction";
 import { useSelector, useDispatch } from "react-redux";
 import { FaTrashAlt } from "react-icons/fa";
-import { Badge } from "reactstrap";
+import { Badge, Button } from "reactstrap";
 
 const H1 = styled.h1`
   font-size: 30px;
@@ -18,7 +18,7 @@ const H1 = styled.h1`
   font-family: "Work Sans", sans-serif;
 `;
 
-const Button = styled.button`
+const Button1 = styled.button`
   padding: 5px 10px;
   margin-left: 7px;
   border-radius: 7px;
@@ -42,10 +42,13 @@ const Ul = styled.ul`
   justify-content: center;
 
   .quantity {
-    color: whitesmoke;
+    color: white;
     font-weight: bolder;
     margin-left: 7px;
     font-size: 20px;
+  }
+  .delBtn {
+    color: #a80000;
   }
 `;
 
@@ -92,10 +95,8 @@ const EmptyDiv = styled.div`
   text-align: center;
 
   h3 {
-    border: 2px solid skyblue;
-    border-radius: 5px;
     max-width: 200px;
-    padding: 5px 10px;
+    padding: 15px 10px;
   }
 `;
 
@@ -123,26 +124,35 @@ export default function Cart() {
               </div>
 
               <div>
-                <AddBtn onClick={() => dispatch(addQuantity(item.id))}>
+                <Button
+                  outline
+                  color="secondary"
+                  onClick={() => dispatch(addQuantity(item.id))}
+                >
                   +
-                </AddBtn>
+                </Button>
               </div>
               <div>
-                <Badge className="quantity" color="primary">
-                  {item.quantity}
-                </Badge>
+                <Badge className="quantity">{item.quantity}</Badge>
               </div>
               <div>
-                <AddBtn
+                <Button
+                  outline
+                  color="secondary"
                   disabled={item.quantity === 1}
                   onClick={() => dispatch(removeQuantity(item.id))}
                 >
                   -
-                </AddBtn>
+                </Button>
               </div>
               <div>
                 {" "}
-                <Button onClick={() => dispatch(removeItem(item.id))}>
+                <Button
+                  className="delBtn"
+                  outline
+                  color="secondary"
+                  onClick={() => dispatch(removeItem(item.id))}
+                >
                   <FaTrashAlt />
                 </Button>
               </div>

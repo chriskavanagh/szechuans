@@ -19,6 +19,9 @@ const App = () => {
           <Route path="/cart">
             <Cart />
           </Route>
+          <Route path="/menu">
+            <Menu />
+          </Route>
         </Switch>
       </div>
     </Router>

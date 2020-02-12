@@ -1,8 +1,11 @@
-import React from "react";
-import "../styles.css";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Container, Row, Col } from "reactstrap";
 
 export default function Menu(props) {
+  const menu = useSelector(state => state.menuReducer.items);
+  console.log(menu);
+
   return (
     <Container>
       <Row>
