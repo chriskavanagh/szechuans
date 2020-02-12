@@ -6,12 +6,17 @@ export default function Soups() {
   const { soups } = useSelector(state => state.foodReducer.food);
   return (
     <>
-      <h1>Soups</h1>
-      <ul>
+      <div className="menu-section">
+        <h2 className="menu-section-title">Soups &amp; Salads</h2>
+        <hr />
         {soups.map((soup, index) => (
-          <li key={index}>{soup.dish}</li>
+          <div className="menu-item">
+            <div className="menu-item-name">{soup.dish}</div>
+            <div className="menu-item-price">{soup.price}</div>
+            <div className="menu-item-description">-No description. </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </>
   );
 }

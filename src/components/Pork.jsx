@@ -6,12 +6,17 @@ export default function Pork() {
   const { pork } = useSelector(state => state.foodReducer.food);
   return (
     <>
-      <h1>Beef</h1>
-      <ul>
+      <div className="menu-section">
+        <h2 className="menu-section-title">Pork Dishes</h2>
+        <hr />
         {pork.map((p, index) => (
-          <li key={index}>{p.dish}</li>
+          <div className="menu-item">
+            <div className="menu-item-name">{p.dish}</div>
+            <div className="menu-item-price">{p.price}</div>
+            <div className="menu-item-description">-No description. </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </>
   );
 }
