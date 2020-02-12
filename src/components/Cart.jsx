@@ -8,7 +8,7 @@ import {
 } from "./../actions/itemAction";
 import { useSelector, useDispatch } from "react-redux";
 import { FaTrashAlt } from "react-icons/fa";
-import { Badge, Button } from "reactstrap";
+import { Badge, Button, Jumbotron, Container } from "reactstrap";
 
 const H1 = styled.h1`
   font-size: 30px;
@@ -95,8 +95,7 @@ const EmptyDiv = styled.div`
   text-align: center;
 
   h3 {
-    max-width: 200px;
-    padding: 15px 10px;
+    text-align: center;
   }
 `;
 
@@ -107,9 +106,13 @@ export default function Cart() {
 
   if (cart.length === 0) {
     return (
-      <EmptyDiv>
-        <h3>Your Cart Is Empty</h3>
-      </EmptyDiv>
+      <div>
+        <Jumbotron style={{ marginTop: "4rem" }}>
+          <Container style={{ textAlign: "center" }}>
+            <h3>Your Cart Is Empty</h3>
+          </Container>
+        </Jumbotron>
+      </div>
     );
   }
   return (

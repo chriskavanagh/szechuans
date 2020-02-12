@@ -23,12 +23,12 @@ a {
   padding: 180px 0;
 }
 
-.section-title .overlay-pic hr {
-  width: 85px;
+/* .section-title .overlay-pic hr {
+  width: 85px; 
   border-top: 3px solid #8eb640;
   text-align: center;
   margin: 0 auto 40px;
-}
+} */
 #theMenu {
   font-family: "Raleway", sans-serif;
   border: none;
@@ -42,7 +42,7 @@ h3 {
 }
 .menu-section hr {
   margin: 0 auto 0 -5;
-  width: 85px;
+  /* width: 85px; */
   border-top: 3px solid #8eb640;
   text-align: center;
 }

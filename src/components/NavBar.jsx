@@ -4,6 +4,7 @@ import { Link, NavLink, withRouter } from "react-router-dom";
 
 const Nav = styled.nav`
   background: #fcfcfc;
+  font-family: "Raleway", sans-serif;
 
   div {
     display: flex;
@@ -21,6 +22,7 @@ const Nav = styled.nav`
     font-size: 20px;
     cursor: pointer;
     margin-left: 25px;
+    padding: 0 10px;
   }
   .brand-logo {
     font-size: 25px;
@@ -42,6 +44,9 @@ const Navbar = props => {
           </li>
           <li>
             <NavLink to="/cart">Cart</NavLink>
+          </li>
+          <li>
+            <NavLink to="/menu">Menu</NavLink>
           </li>
         </ul>
       </div>
