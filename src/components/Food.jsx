@@ -31,7 +31,7 @@ const Button = styled.button`
 `;
 
 export default function Food() {
-  const menu = useSelector(state => state.menuReducer.items);
+  const menu = useSelector(state => state.itemReducer.items);
   const dispatch = useDispatch();
   //const [menu, setMenu] = useState([]);
 

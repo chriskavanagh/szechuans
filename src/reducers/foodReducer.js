@@ -13,6 +13,7 @@ const initialState = {
       { id: 110, dish: "Seafood Curry Soup", price: 2.1, quantity: 0 }
     ],
     poultry: [
+      { id: 200, dish: "General Chicken", price: 12.95, quantity: 0 },
       { id: 201, dish: "Sweet Sour Chicken", price: 10.95, quantity: 0 },
       { id: 202, dish: "Szechuan Chicken", price: 10.95, quantity: 0 },
       { id: 203, dish: "Moo Goo Gai Pan", price: 10.95, quantity: 0 },
@@ -53,7 +54,7 @@ const initialState = {
       { id: 309, dish: "Beef Peanuts", price: 12.5, quantity: 0 },
       { id: 310, dish: "Curry Beef", price: 12.5, quantity: 0 },
       { id: 311, dish: "Beef & Dried Tofu", price: 13.95, quantity: 0 },
-      { id: 312, dish: "Beef & Tomato w/Mixed Veg", price: 2.1, quantity: 0 },
+      { id: 312, dish: "Beef/Tomato w/Mixed Veg", price: 2.1, quantity: 0 },
       { id: 313, dish: "Teriyaki Beef", price: 12.95, quantity: 0 }
     ],
     pork: [

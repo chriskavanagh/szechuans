@@ -5,8 +5,6 @@ import Food from "./components/Food";
 import Cart from "./components/Cart";
 import Navbar from "./components/NavBar";
 import Menu from "./components/Menu";
-//import Soups from "./components/Soups";
-import Beef from "./components/Beef";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const App = () => {
