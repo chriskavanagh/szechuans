@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link, NavLink, withRouter } from "react-router-dom";
 
 const Nav = styled.nav`
-  background: #fcfcfc;
+  background: #576366;
   font-family: "Raleway", sans-serif;
 
   div {
@@ -23,9 +23,17 @@ const Nav = styled.nav`
     cursor: pointer;
     margin-left: 25px;
     padding: 0 10px;
+
+    a {
+      color: #b2bbbd;
+      :hover {
+        color: white;
+      }
+    }
   }
   .brand-logo {
     font-size: 25px;
+    color: #fff;
   }
 `;
 

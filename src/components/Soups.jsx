@@ -21,7 +21,7 @@ export default function Soups({ addItem, dispatch }) {
               size="sm"
               onClick={() => {
                 dispatch(addItem(soup.id));
-                Toast.success(`${soup.dish} added to cart`, 3000, () => {
+                Toast.success(`${soup.dish} added to cart.`, 1500, () => {
                   console.log("success");
                 });
               }}
