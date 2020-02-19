@@ -44,20 +44,71 @@ const mystate = {
       price: 2.75
     },
     allIds: [100, 101, 102, 103, 104]
+  },
+  poultryById: {
+    200: {
+      id: 200,
+      name: "Szechuan Chicken",
+      price: 9.25
+    },
+    201: {
+      id: 201,
+      name: "Moo Gai Pan",
+      price: 9.25
+    },
+    202: {
+      id: 202,
+      name: "Moo Shu Chicken",
+      price: 12.25
+    },
+    203: {
+      id: 203,
+      name: "Generals Chicken",
+      price: 12.25
+    },
+    204: {
+      id: 204,
+      name: "Chicken & Broccoli",
+      price: 10.75
+    },
+    allIds: [200, 201, 202, 203, 204]
   }
 };
 
 export default function SoupById() {
-  const { allIds } = mystate.soupById;
+  /* soup */
   const { soupById } = mystate;
-  return (
-    <>
-      {allIds.map(id => (
+  const { allIds: soupAllIds } = mystate.soupById;
+  /* poultry */
+  const { poultryById } = mystate;
+  const { allIds: poultryAllIds } = mystate.poultryById;
+
+  const poultry = (
+    <div>
+      {poultryAllIds.map(id => (
+        <Div key={id}>
+          <div>{poultryById[id].name}</div>
+          <div>{poultryById[id].price}</div>
+        </Div>
+      ))}
+    </div>
+  );
+
+  const soup = (
+    <div>
+      {soupAllIds.map(id => (
         <Div key={id}>
           <div>{soupById[id].name}</div>
           <div>{soupById[id].price}</div>
         </Div>
       ))}
+    </div>
+  );
+
+  return (
+    <>
+      <div>{soup}</div>
+      <div>{poultry}</div>
     </>
   );
 }
