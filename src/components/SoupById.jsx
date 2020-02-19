@@ -1,4 +1,20 @@
 import React from "react";
+import styled from "styled-components";
+
+const Div = styled.div`
+  display: grid;
+  grid-template-columns: 400px 400px;
+  justify-content: center;
+  justify-items: center;
+  margin-top: 3rem;
+
+  .dishName {
+    font-size: 20px;
+  }
+  .dishPrice {
+    font-size: 20px;
+  }
+`;
 
 const mystate = {
   soupById: {
@@ -26,16 +42,22 @@ const mystate = {
       id: 104,
       name: "Bean Curd Soup",
       price: 2.75
-    }
+    },
+    allIds: [100, 101, 102, 103, 104]
   }
 };
 
 export default function SoupById() {
+  const { allIds } = mystate.soupById;
+  const { soupById } = mystate;
   return (
-    <div>
-      {Object.values(mystate.soupById).map(f => (
-        <div key={f.id}>{f.name}</div>
+    <>
+      {allIds.map(id => (
+        <Div key={id}>
+          <div>{soupById[id].name}</div>
+          <div>{soupById[id].price}</div>
+        </Div>
       ))}
-    </div>
+    </>
   );
 }
