@@ -84,25 +84,25 @@ export default function SoupById() {
   const { allIds: poultryAllIds } = mystate.poultryById;
 
   const poultry = (
-    <div>
+    <>
       {poultryAllIds.map(id => (
         <Div key={id}>
           <div>{poultryById[id].name}</div>
           <div>{poultryById[id].price}</div>
         </Div>
       ))}
-    </div>
+    </>
   );
 
   const soup = (
-    <div>
+    <>
       {soupAllIds.map(id => (
         <Div key={id}>
           <div>{soupById[id].name}</div>
           <div>{soupById[id].price}</div>
         </Div>
       ))}
-    </div>
+    </>
   );
 
   return (
