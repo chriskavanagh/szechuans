@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import Total from "./Total";
+import { UserContext } from "./../App";
 import styled from "styled-components";
 import {
   addQuantity,
@@ -104,12 +105,15 @@ export default function Cart() {
   const sub = useSelector(state => state.itemReducer.total);
   const dispatch = useDispatch();
 
+  // context hook
+  const user = useContext(UserContext);
+
   if (cart.length === 0) {
     return (
       <div>
         <Jumbotron style={{ marginTop: "4rem" }}>
           <Container style={{ textAlign: "center" }}>
-            <h3>Your Cart Is Empty</h3>
+            <h3>{user} Your Cart Is Empty</h3>
           </Container>
         </Jumbotron>
       </div>
@@ -117,7 +121,7 @@ export default function Cart() {
   }
   return (
     <Wrapper>
-      <H1 className="header">My Cart</H1>
+      <H1 className="header">{user} Cart</H1>
       <Div className="cart">
         <Ul>
           {cart.map(item => (
