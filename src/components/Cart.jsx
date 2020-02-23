@@ -101,11 +101,12 @@ const EmptyDiv = styled.div`
 `;
 
 export default function Cart() {
+  // Redux Hooks
   const cart = useSelector(state => state.itemReducer.addedItems);
   const sub = useSelector(state => state.itemReducer.total);
   const dispatch = useDispatch();
 
-  // context hook
+  // context hook (Provider In App.js)
   const user = useContext(UserContext);
 
   if (cart.length === 0) {
@@ -113,7 +114,7 @@ export default function Cart() {
       <div>
         <Jumbotron style={{ marginTop: "4rem" }}>
           <Container style={{ textAlign: "center" }}>
-            <h3>{user} Your Cart Is Empty</h3>
+            <h3>{user.first} Your Cart Is Empty</h3>
           </Container>
         </Jumbotron>
       </div>
@@ -121,14 +122,12 @@ export default function Cart() {
   }
   return (
     <Wrapper>
-      <H1 className="header">{user} Cart</H1>
+      <H1 className="header">{user.first} Cart</H1>
       <Div className="cart">
         <Ul>
           {cart.map(item => (
-            <>
-              <div>
-                <Li key={item.id}>{item.dish}</Li>
-              </div>
+            <React.Fragment key={item.id}>
+              <Li>{item.dish}</Li>
 
               <div>
                 <Button
@@ -163,7 +162,7 @@ export default function Cart() {
                   <FaTrashAlt />
                 </Button>
               </div>
-            </>
+            </React.Fragment>
           ))}
         </Ul>
       </Div>

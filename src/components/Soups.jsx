@@ -4,7 +4,7 @@ import { Button } from "reactstrap";
 import Toast from "light-toast";
 
 export default function Soups({ addItem, dispatch }) {
-  const { soups } = useSelector(state => state.foodReducer.food);
+  const { soups } = useSelector(state => state.itemReducer.items);
   return (
     <>
       <div className="menu-section">
@@ -21,7 +21,7 @@ export default function Soups({ addItem, dispatch }) {
               size="sm"
               onClick={() => {
                 dispatch(addItem(soup.id));
-                Toast.success(`${soup.dish} added to cart.`, 1000, () => {
+                Toast.success(`${soup.dish} added to cart.`, 800, () => {
                   console.log("success");
                 });
               }}

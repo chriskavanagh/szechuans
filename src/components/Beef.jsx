@@ -3,7 +3,7 @@ import { Button } from "reactstrap";
 import { useSelector } from "react-redux";
 
 export default function Beef({ addItem, dispatch }) {
-  const { beef } = useSelector(state => state.foodReducer.food);
+  const { beef } = useSelector(state => state.itemReducer.items);
   return (
     <>
       <div className="menu-section">

@@ -8,12 +8,21 @@ import Menu from "./components/Menu";
 import SoupById from "./components/SoupById";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+// Context Hook
 export const UserContext = React.createContext();
+
+const user = {
+  id: "001",
+  first: "Chris",
+  last: "Kavanagh",
+  state: "VA",
+  city: "Roanoke"
+};
 
 const App = () => {
   return (
-    <Router>
-      <UserContext.Provider value={"Chris Kavanagh"}>
+    <UserContext.Provider value={user}>
+      <Router>
         <div className="App">
           <Navbar />
           <Switch>
@@ -28,8 +37,8 @@ const App = () => {
             </Route>
           </Switch>
         </div>
-      </UserContext.Provider>
-    </Router>
+      </Router>
+    </UserContext.Provider>
   );
 };
 
