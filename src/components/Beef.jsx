@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "reactstrap";
 import { useSelector } from "react-redux";
+import Toast from "light-toast";
 
 export default function Beef({ addItem, dispatch }) {
   const { beef } = useSelector(state => state.itemReducer.items);
@@ -18,7 +19,12 @@ export default function Beef({ addItem, dispatch }) {
               outline
               color="success"
               size="sm"
-              onClick={() => dispatch(addItem(b.id))}
+              onClick={() => {
+                dispatch(addItem(b.id));
+                Toast.success(`${b.dish} added to cart.`, 800, () => {
+                  console.log("success");
+                });
+              }}
             >
               Add To Cart
             </Button>

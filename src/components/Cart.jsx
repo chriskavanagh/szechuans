@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import Total from "./Total";
 import { UserContext } from "./../App";
 import styled from "styled-components";
@@ -107,7 +107,7 @@ export default function Cart() {
   const dispatch = useDispatch();
 
   // context hook (Provider In App.js)
-  const user = useContext(UserContext);
+  const user = React.useContext(UserContext);
 
   if (cart.length === 0) {
     return (
